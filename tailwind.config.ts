@@ -59,11 +59,9 @@ export default {
   			sm: 'calc(var(--radius) - 4px)'
   		},
   		fontFamily: {
-  			sans: [
-  				'var(--font-sans)',
-                    ...fontFamily.sans
-                ]
-  		},
+        sans: ['Onest', ...fontFamily.sans],
+        timegoing: ['Timegoing', ...fontFamily.sans],
+      },
   		keyframes: {
   			'accordion-down': {
   				from: {
