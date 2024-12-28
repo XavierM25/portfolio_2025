@@ -1,5 +1,6 @@
-import React from 'react';
 import IconCloudDemo from './IconsCloud';
+import React, { useContext } from 'react';
+import { LanguageContext } from '@/context/LanguageContext';
 
 const BlurCircle: React.FC<{
   className: string;
@@ -10,15 +11,17 @@ const BlurCircle: React.FC<{
   />
 );
 
-function contact() {
+const Contact: React.FC = () => {
+  const { translations } = useContext(LanguageContext);
+
   return (
     <section
       id="contact"
       className="z-10 flex flex-col relative items-center justify-center bg-[#020202] pb-60"
     >
-      <div className="flex ">
+      <div className="flex">
         <h1 className="font-timegoing text-[#2BC016] text-[50px] laptop:text-[90px]">
-          Contacto
+          {translations.contactTitle}
         </h1>
       </div>
 
@@ -29,21 +32,19 @@ function contact() {
               className="text-[16px] tablet:text-[14px] laptop:text-[18px]"
               style={{ fontWeight: 500 }}
             >
-              Intento superarme constantemente.
+              {translations.contactSubtitle1}
             </h1>
             <h1
               className="max-w-96 text-[24px] tablet:text-[16px] laptop:text-[24px] laptop:max-w-[300px]"
               style={{ fontWeight: 500 }}
             >
-              Actualmente estoy aprendiendo en Platzi.
+              {translations.contactSubtitle2}
             </h1>
             <p
               className="max-w-96 text-[14px] tablet:text-[12px] laptop:text-[18px] laptop:max-w-[400px]"
               style={{ fontWeight: 300 }}
             >
-              También estoy aprendiendo TypeScript y otros frameworks a través
-              de mis repositorios de código abierto. Aparte de eso, también
-              practico constantemente el backend.
+              {translations.contactDescription}
             </p>
           </div>
           <div className="z-10 mt-8 tablet:mt-0">
@@ -59,14 +60,13 @@ function contact() {
                 className="max-w-96 text-[24px] tablet:text-[18px] laptop:text-[32px] laptop:max-w-72"
                 style={{ fontWeight: 500 }}
               >
-                Ponte en contacto conmigo
+                {translations.contactGetInTouch}
               </h1>
               <p
                 className="max-w-96 text-[14px] tablet:text-[14px] laptop:text-[18px] laptop:max-w-80"
                 style={{ fontWeight: 300 }}
               >
-                Póngase en contacto conmigo por correo electrónico u otra red
-                social.
+                {translations.contactMessage}
               </p>
             </div>
             <div className="flex flex-row gap-x-8 justify-center items-center">
@@ -77,7 +77,7 @@ function contact() {
                 <img
                   src="/icon/linkedin.svg"
                   className="w-5 h-5 tablet:w-4 tablet:h-4 laptop:w-6 laptop:h-6"
-                  alt=""
+                  alt="LinkedIn"
                 />
               </a>
               <a
@@ -87,7 +87,7 @@ function contact() {
                 <img
                   src="/icon/threads.svg"
                   className="w-5 h-5 tablet:w-4 tablet:h-4 laptop:w-6 laptop:h-6"
-                  alt=""
+                  alt="Threads"
                 />
               </a>
               <a
@@ -97,7 +97,7 @@ function contact() {
                 <img
                   src="/icon/mail.svg"
                   className="w-5 h-5 tablet:w-4 tablet:h-4 laptop:w-6 laptop:h-6"
-                  alt=""
+                  alt="Email"
                 />
               </a>
             </div>
@@ -108,6 +108,6 @@ function contact() {
       </article>
     </section>
   );
-}
+};
 
-export default contact;
+export default Contact;

@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { LanguageContext } from '@/context/LanguageContext';
 
 function hero() {
+  const { translations } = useContext(LanguageContext);
   return (
     <section
       id="home"
@@ -11,7 +13,7 @@ function hero() {
           className="font-onest text-white text-[30px] laptop:text-[50px] -mb-5"
           style={{ fontWeight: 700 }}
         >
-          Hola, soy
+          {translations.hello}
         </h1>
         <div className="flex flex-row gap-4 text-[50px] laptop:text-[100px] laptop:-mt-6">
           <p className="font-timegoing text-[#2BC016] tracking-[0.01em] ">
@@ -25,7 +27,7 @@ function hero() {
           className="font-onest text-[18px] text-[#fff] max-w-64 tablet:max-w-96 text-center laptop:max-w-[650px] laptop:text-[24px]"
           style={{ fontWeight: 200 }}
         >
-          tu próximo aliado en tecnología y desarrollo.
+          {translations.heroSubtext}
         </h2>
       </div>
       <div
@@ -33,10 +35,10 @@ function hero() {
         style={{ fontWeight: 600 }}
       >
         <button className="px-12 py-2 rounded-xl font-onest border-[0.5px] border-[#2BC016] bg-[#395E66] bg-opacity-15 text-white hover:bg-opacity-20 transition-all">
-          Contáctame
+          {translations.contactMe}
         </button>
         <button className="px-12 py-2 rounded-xl font-onest border-[0.5px] border-white text-[#2BBD1A] bg-[#2BBD1C] bg-opacity-15 hover:bg-opacity-20 transition-all">
-          Proyectos
+          {translations.projectsButton}
         </button>
       </div>
       <div className=" absolute w-[320px] h-[1000px] m:w-[375px] tablet:w-[800px] laptopL:w-[1400px] rounded-full bg-[#26A96C] opacity-30 blur-[200px] left-1/2 top-[120%] -translate-x-1/2 -translate-y-1/2" />

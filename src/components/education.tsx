@@ -1,5 +1,7 @@
 import type { FC } from 'react';
+import React, { useContext } from 'react';
 import { educationDetails } from '@/data/educationDetails';
+import { LanguageContext } from '@/context/LanguageContext';
 import { blurCircles } from '@/data/blurCirclesEducation';
 
 interface BlurCircleProps {
@@ -18,14 +20,16 @@ const STYLES = {
     'max-w-[320px] opacity-75 font-onest text-[16px] laptop:text-[20px] font-light z-10',
 };
 
-const Education: FC = () => {
+const Education: React.FC = () => {
+  const { translations } = useContext(LanguageContext);
+
   return (
     <section
       id="education"
       className="z-10 flex flex-col relative items-center justify-center bg-[#020202] pb-60"
     >
       <h1 className="font-timegoing text-[#2BC016] text-[50px] laptop:text-[90px]">
-        Educación
+        {translations.educationTitle}
       </h1>
 
       <article className="text-white m-8">
@@ -44,7 +48,11 @@ const Education: FC = () => {
             </a>
           </div>
 
-          {educationDetails.map((detail, index) => (
+          {[
+            translations.educationDetail1,
+            translations.educationDetail2,
+            translations.educationDetail3,
+          ].map((detail, index) => (
             <p key={index} className={STYLES.textContent}>
               {detail}
             </p>

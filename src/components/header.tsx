@@ -1,10 +1,12 @@
-import React from 'react';
-import { Menu, X } from 'lucide-react';
+import React, { useContext } from 'react';
+import { Menu, X, ChevronDown } from 'lucide-react';
+import { LanguageContext } from '@/context/LanguageContext';
 import { navItems } from '@/data/navItems';
 
 function header() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-
+  const { language, setLanguage, translations } = useContext(LanguageContext);
+  const [isLangMenuOpen, setIsLangMenuOpen] = React.useState(false);
   const handleScroll = (id: string) => (e: React.MouseEvent) => {
     e.preventDefault();
     const section = document.getElementById(id);
@@ -12,6 +14,11 @@ function header() {
       section.scrollIntoView({ behavior: 'smooth' });
       setIsMenuOpen(false);
     }
+  };
+
+  const handleLanguageChange = (lang: string) => {
+    setLanguage(lang);
+    setIsLangMenuOpen(false);
   };
   return (
     <header className="bg-[#020202] tablet:w-[750px] laptop:w-[900px] sticky mx-auto top-0 tablet:top-12 z-50 tablet:rounded-full tablet:border-[0.5px] tablet:border-[#2BC016]">
@@ -34,51 +41,81 @@ function header() {
               </a>
             ))}
           </div>
-          <button className="hidden md:flex items-center">
-            <img
-              src="https://images.unsplash.com/photo-1529528744093-6f8abeee511d?auto=format&fit=crop&w=32"
-              alt="Spanish"
-              className="h-6 w-8 object-cover rounded"
-            />
-          </button>
-
-          <div className="md:hidden">
+          <div className="relative hidden md:flex items-center ">
             <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-white/50 hover:text-white/75 p-2"
-              aria-expanded={isMenuOpen}
-              aria-label="Toggle menu"
+              onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
+              className="flex items-center "
             >
-              {isMenuOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
+              <img
+                src={`${language}.svg`}
+                alt={language}
+                className="h-6 w-8 object-cover rounded"
+              />
+              <ChevronDown
+                className={`ml-2 transition-transform ${
+                  isLangMenuOpen ? 'rotate-180' : 'rotate-0'
+                }`}
+              />
+            </button>
+            {isLangMenuOpen && (
+              <div className="absolute top-full left-0 mt-4 bg-[#020202] rounded shadow-md text-[18px] font-onest">
+                <ul>
+                  {['es', 'en', 'pt'].map((lang) => (
+                    <li key={lang}>
+                      <button
+                        className="flex items-center hover:bg-gray-700 w-[70px] justify-center"
+                        onClick={() => handleLanguageChange(lang)}
+                      >
+                        <img
+                          src={`${lang}.svg`}
+                          alt={lang}
+                          className="w-12 h-12 rounded px-2"
+                        />
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+
+          <div className="md:hidden flex items-center">
+            <button
+              onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
+              className="flex items-center ml-4"
+            >
+              <img
+                src={`${language}.svg`}
+                alt={language}
+                className="h-6 w-8 object-cover rounded"
+              />
+              <ChevronDown
+                className={`ml-2 transition-transform ${
+                  isLangMenuOpen ? 'rotate-180' : 'rotate-0'
+                }`}
+              />
             </button>
           </div>
         </div>
 
-        {isMenuOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              {navItems.map((item) => (
-                <a
-                  key={item.label}
-                  href={`#${item.href.substring(1)}`}
-                  onClick={handleScroll(item.href.substring(1))}
-                  className="text-white/50 hover:text-white/75 block px-3 py-2 text-base font-onest"
-                >
-                  {item.label}
-                </a>
+        {isLangMenuOpen && (
+          <div className="md:hidden absolute top-full left-0 mt-4 bg-[#020202] rounded shadow-md text-[18px] font-onest">
+            <ul>
+              {['es', 'pt', 'en'].map((lang) => (
+                <li key={lang}>
+                  <button
+                    className="flex items-center hover:bg-gray-700 w-[70px] justify-center"
+                    onClick={() => handleLanguageChange(lang)}
+                  >
+                    <img
+                      src={`${lang}.svg`}
+                      alt={lang}
+                      className="w-12 h-12 rounded px-2"
+                    />
+                  </button>
+                </li>
               ))}
-              <div className="px-3 py-2">
-                <img
-                  src="https://images.unsplash.com/photo-1529528744093-6f8abeee511d?auto=format&fit=crop&w=32"
-                  alt="Spanish"
-                  className="h-6 w-8 object-cover rounded"
-                />
-              </div>
-            </div>
+            </ul>
           </div>
         )}
       </nav>
