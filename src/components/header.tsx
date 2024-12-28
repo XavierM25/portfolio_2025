@@ -1,18 +1,20 @@
 import React from 'react';
 import { Menu, X } from 'lucide-react';
-
-const navItems = [
-  { label: 'Inicio', href: '#' },
-  { label: 'Sobre mi', href: '#' },
-  { label: 'Proyectos', href: '#' },
-  { label: 'Educación', href: '#' },
-  { label: 'Contacto', href: '#' },
-];
+import { navItems } from '@/data/navItems';
 
 function header() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
+  const handleScroll = (id: string) => (e: React.MouseEvent) => {
+    e.preventDefault();
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+      setIsMenuOpen(false);
+    }
+  };
   return (
-    <header className="bg-[#020202] sm:w-[900px] sticky mx-auto top-0 z-50 rounded-full mt-4 md:border-[0.5px] md:border-[#2BC016]">
+    <header className="bg-[#020202] tablet:w-[750px] laptop:w-[900px] sticky mx-auto top-0 tablet:top-12 z-50 tablet:rounded-full tablet:border-[0.5px] tablet:border-[#2BC016]">
       <nav className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14">
           <div className="flex-shrink-0">
@@ -25,7 +27,8 @@ function header() {
               <a
                 key={item.label}
                 href={item.href}
-                className="text-white/50 hover:text-white/75 transition-colors duration-200 text-base font-onest"
+                onClick={handleScroll(item.href.substring(1))}
+                className="text-white/50 hover:text-white/75 transition-colors duration-200 text-base font-medium font-onest"
               >
                 {item.label}
               </a>
@@ -61,7 +64,8 @@ function header() {
               {navItems.map((item) => (
                 <a
                   key={item.label}
-                  href={item.href}
+                  href={`#${item.href.substring(1)}`}
+                  onClick={handleScroll(item.href.substring(1))}
                   className="text-white/50 hover:text-white/75 block px-3 py-2 text-base font-onest"
                 >
                   {item.label}
