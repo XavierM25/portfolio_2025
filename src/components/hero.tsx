@@ -34,10 +34,22 @@ function hero() {
         className="flex flex-col tablet:flex-row gap-y-5 z-10 text-[14px] tablet:space-x-6 laptop:text-[20px] laptop:space-x-12"
         style={{ fontWeight: 600 }}
       >
-        <button className="px-12 py-2 rounded-xl font-onest border-[0.5px] border-[#2BC016] bg-[#395E66] bg-opacity-15 text-white hover:bg-opacity-20 transition-all">
+        <button
+          className="px-12 py-2 rounded-xl font-onest border-[0.5px] border-[#2BC016] bg-[#395E66] bg-opacity-15 text-white hover:bg-opacity-20 transition-all"
+          onClick={() =>
+            window.open(
+              'https://www.linkedin.com/in/davidmonta%C3%B1o25?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BvkbHAtPGSFe5tfDelUna%2BA%3D%3D',
+              '_blank',
+              'noopener,noreferrer'
+            )
+          }
+        >
           {translations.contactMe}
         </button>
-        <button className="px-12 py-2 rounded-xl font-onest border-[0.5px] border-white text-[#2BBD1A] bg-[#2BBD1C] bg-opacity-15 hover:bg-opacity-20 transition-all">
+        <button
+          className="px-12 py-2 rounded-xl font-onest border-[0.5px] border-white text-[#2BBD1A] bg-[#2BBD1C] bg-opacity-15 hover:bg-opacity-20 transition-all"
+          onClick={() => (window.location.href = '#projects')}
+        >
           {translations.projectsButton}
         </button>
       </div>

@@ -20,6 +20,7 @@ function header() {
     setLanguage(lang);
     setIsLangMenuOpen(false);
   };
+
   return (
     <header className="bg-[#020202] tablet:w-[750px] laptop:w-[900px] sticky mx-auto top-0 tablet:top-12 z-50 tablet:rounded-full tablet:border-[0.5px] tablet:border-[#2BC016]">
       <nav className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -32,12 +33,12 @@ function header() {
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <a
-                key={item.label}
+                key={item.labelKey}
                 href={item.href}
                 onClick={handleScroll(item.href.substring(1))}
                 className="text-white/50 hover:text-white/75 transition-colors duration-200 text-base font-medium font-onest"
               >
-                {item.label}
+                {translations[item.labelKey]}
               </a>
             ))}
           </div>

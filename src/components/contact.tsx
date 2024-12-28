@@ -72,7 +72,14 @@ const Contact: React.FC = () => {
             <div className="flex flex-row gap-x-8 justify-center items-center">
               <a
                 className="z-10 border border-[#387D7A] p-3 bg-[#FFFFFF] bg-opacity-10 rounded-xl hover:bg-opacity-25 transition-500 transition-colors"
-                href=""
+                style={{ cursor: 'pointer' }}
+                onClick={() =>
+                  window.open(
+                    'https://www.linkedin.com/in/davidmonta%C3%B1o25?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BvkbHAtPGSFe5tfDelUna%2BA%3D%3D',
+                    '_blank',
+                    'noopener,noreferrer'
+                  )
+                }
               >
                 <img
                   src="/icon/linkedin.svg"
@@ -92,7 +99,7 @@ const Contact: React.FC = () => {
               </a>
               <a
                 className="z-10 border border-[#387D7A] p-3 bg-[#FFFFFF] bg-opacity-10 rounded-xl hover:bg-opacity-25 transition-500 transition-colors"
-                href=""
+                href="mailto:xaviermg2504@gmail.com"
               >
                 <img
                   src="/icon/mail.svg"
