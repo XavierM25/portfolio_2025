@@ -32,4 +32,5 @@ export type TranslationKey =
   | 'contactSubtitle2'
   | 'contactDescription'
   | 'contactGetInTouch'
+  | 'CV'
   | 'contactMessage';

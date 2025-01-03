@@ -32,5 +32,6 @@
   "contactSubtitle2": "I am currently learning at Platzi.",
   "contactDescription": "I am also learning TypeScript and other frameworks through my open-source repositories. Besides that, I also constantly practice backend development.",
   "contactGetInTouch": "Get in touch with me",
-  "contactMessage": "Get in touch with me via email or other social networks."
+  "contactMessage": "Get in touch with me via email or other social networks.",
+  "CV": "Download CV"
 }

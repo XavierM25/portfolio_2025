@@ -52,6 +52,17 @@ function hero() {
         >
           {translations.projectsButton}
         </button>
+        <button
+          className="px-12 py-2 rounded-xl font-onest border-[0.5px] border-[#b1f049] text-white bg-[#b1f049] bg-opacity-15 hover:bg-opacity-20 transition-all"
+          onClick={() => {
+            const link = document.createElement('a');
+            link.href = '/CV.pdf';
+            link.setAttribute('download', 'CV.pdf');
+            link.click();
+          }}
+        >
+          {translations.CV}
+        </button>
       </div>
       <div className=" absolute w-[320px] h-[1000px] m:w-[375px] tablet:w-[800px] laptopL:w-[1400px] rounded-full bg-[#26A96C] opacity-30 blur-[200px] left-1/2 top-[120%] -translate-x-1/2 -translate-y-1/2" />
     </section>
