@@ -89,7 +89,7 @@ const Contact: React.FC = () => {
               </a>
               <a
                 className="z-10 border border-[#387D7A] p-3 bg-[#FFFFFF] bg-opacity-10 rounded-xl hover:bg-opacity-25 transition-500 transition-colors"
-                href=""
+                href="https://www.threads.net/@friendtech25"
               >
                 <img
                   src="/icon/threads.svg"

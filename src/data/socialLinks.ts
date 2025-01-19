@@ -1,5 +1,5 @@
 export const socialLinks = [
-  { href: '/', icon: '/icon/instagram.svg', alt: 'Instagram' },
+  { href: 'https://www.instagram.com/friendtech25',icon: '/icon/instagram.svg', alt: 'Instagram' },
   { href: 'https://x.com/DavixStudios', icon: '/icon/x.svg', alt: 'X' },
   {
     href: 'https://github.com/XavierM25',

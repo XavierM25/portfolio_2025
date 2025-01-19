@@ -6,7 +6,7 @@ function hero() {
   return (
     <section
       id="home"
-      className="relative top-0 left-0 w-full h-screen justify-center mx-auto items-center flex flex-col z-0 min-h-[40vh]"
+      className="relative top-0 left-0 w-full h-screen justify-center mx-auto items-center flex flex-col z-0 min-h-[40vh] motion-opacity-in-0 motion-translate-y-in-100 motion-blur-in-md "
     >
       <div className="z-10 justify-center items-center flex flex-col mb-8">
         <h1
